@@ -8,6 +8,7 @@ use App\Events\MessageSent;
 class MessageController extends Controller
 {
     /**
+     *
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -60,7 +61,7 @@ class MessageController extends Controller
         $data['message']=$message->message;
         $data['subject']=$message->subject;
         $data['photo']=Auth()->user()->photo;
-        // return $data;    
+        // return $data;
         event(new MessageSent($data));
         exit();
     }

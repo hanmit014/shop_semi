@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use Illuminate\Support\Facades\Session;
 class CouponController extends Controller
 {
     /**
@@ -97,7 +98,7 @@ class CouponController extends Controller
             'status'=>'required|in:active,inactive'
         ]);
         $data=$request->all();
-        
+
         $status=$coupon->fill($data)->save();
         if($status){
             request()->session()->flash('success','Coupon Successfully updated');
@@ -106,7 +107,7 @@ class CouponController extends Controller
             request()->session()->flash('error','Please try again!!');
         }
         return redirect()->route('coupon.index');
-        
+
     }
 
     /**

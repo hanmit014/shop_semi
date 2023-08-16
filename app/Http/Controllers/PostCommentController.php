@@ -8,6 +8,8 @@ use Notification;
 use App\User;
 use App\Notifications\StatusNotification;
 use App\Models\PostComment;
+use Illuminate\Support\Facades\Session;
+
 class PostCommentController extends Controller
 {
     /**

@@ -12,6 +12,7 @@ use Hash;
 
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -220,11 +221,11 @@ class HomeController extends Controller
             'new_password' => ['required'],
             'new_confirm_password' => ['same:new_password'],
         ]);
-   
+
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-   
+
         return redirect()->route('user')->with('success','Password successfully changed');
     }
 
-    
+
 }
