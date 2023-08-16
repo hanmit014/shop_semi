@@ -354,11 +354,11 @@ class FrontendController extends Controller
         $data= $request->all();
         if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'],'status'=>'active'])){
             Session::put('user',$data['email']);
-            request()->session()->flash('success','Successfully login');
+            session()->flash('success','Successfully login');
             return redirect()->route('home');
         }
         else{
-            request()->session()->flash('error','Invalid email and password pleas try again!');
+           session()->flash('error','Invalid email and password pleas try again!');
             return redirect()->back();
         }
     }
@@ -366,7 +366,7 @@ class FrontendController extends Controller
     public function logout(){
         Session::forget('user');
         Auth::logout();
-        request()->session()->flash('success','Logout successfully');
+       session()->flash('success','Logout successfully');
         return back();
     }
 
@@ -385,11 +385,11 @@ class FrontendController extends Controller
         $check=$this->create($data);
         Session::put('user',$data['email']);
         if($check){
-            request()->session()->flash('success','Successfully registered');
+           session()->flash('success','Successfully registered');
             return redirect()->route('home');
         }
         else{
-            request()->session()->flash('error','Please try again!');
+           session()->flash('error','Please try again!');
             return back();
         }
     }
@@ -410,7 +410,7 @@ class FrontendController extends Controller
         if(! Newsletter::isSubscribed($request->email)){
                 Newsletter::subscribePending($request->email);
                 if(Newsletter::lastActionSucceeded()){
-                    request()->session()->flash('success','Subscribed! Please check your email');
+                   session()->flash('success','Subscribed! Please check your email');
                     return redirect()->route('home');
                 }
                 else{
@@ -419,7 +419,7 @@ class FrontendController extends Controller
                 }
             }
             else{
-                request()->session()->flash('error','Already Subscribed');
+               session()->flash('error','Already Subscribed');
                 return back();
             }
     }
