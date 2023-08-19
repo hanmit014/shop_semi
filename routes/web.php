@@ -2,6 +2,7 @@
 
     use Illuminate\Support\Facades\Route;
 
+
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -16,13 +17,14 @@
     // CACHE CLEAR ROUTE
     Route::get('cache-clear', function () {
         \Illuminate\Support\Facades\Artisan::call('optimize:clear');
-        request()->session()->flash('success', 'Successfully cache cleared.');
+      session()->flash('success', 'Successfully cache cleared.');
         return redirect()->back();
     })->name('cache.clear');
 
 
     // STORAGE LINKED ROUTE
     Route::get('storage-link',[\App\Http\Controllers\AdminController::class,'storageLink'])->name('storage.link');
+
 
 
     Auth::routes(['register' => false]);
