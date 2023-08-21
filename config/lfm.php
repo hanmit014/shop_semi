@@ -92,20 +92,20 @@ return [
 
     'disk'                     => 'public',
 
-    'rename_file'              => false,
+    'rename_file'              => true,
 
-    'alphanumeric_filename'    => false,
+    'alphanumeric_filename'    => true,
 
-    'alphanumeric_directory'   => false,
+    'alphanumeric_directory'   => true,
 
-    'should_validate_size'     => false,
+    'should_validate_size'     => true,
 
-    'should_validate_mime'     => false,
+    'should_validate_mime'     => true,
 
     // behavior on files with identical name
     // setting it to true cause old file replace with new one
     // setting it to false show `error-file-exist` error and stop upload
-    'over_write_on_duplicate'  => false,
+    'over_write_on_duplicate'  => true,
 
     /*
     |--------------------------------------------------------------------------
