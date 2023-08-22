@@ -18,6 +18,7 @@ class CouponController extends Controller
         return view('backend.coupon.index')->with('coupons',$coupon);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

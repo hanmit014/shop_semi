@@ -79,6 +79,7 @@ class PaypalController extends Controller
             return redirect()->route('home');
         }
 
+
        session()->flash('error','Something went wrong please try again!!!');
         return redirect()->back();
     }

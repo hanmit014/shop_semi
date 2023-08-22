@@ -16,6 +16,7 @@ class NotificationController extends Controller
             return redirect($notification->data['actionURL']);
         }
     }
+
     public function delete($id){
         $notification=Notification::find($id);
         if($notification){

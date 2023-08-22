@@ -11,15 +11,16 @@ use App\Models\Post;
 use App\Models\Cart;
 use App\Models\Brand;
 use App\User;
-use Auth;
-use Session;
-use Newsletter;
+use Spatie\Newsletter\Newsletter;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use DB;
 use Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
+
 
     public function index(Request $request){
         return redirect()->route($request->user()->role);

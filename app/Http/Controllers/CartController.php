@@ -16,6 +16,7 @@ class CartController extends Controller
         $this->product=$product;
     }
 
+
     public function addToCart(Request $request){
         // dd($request->all());
         if (empty($request->slug)) {

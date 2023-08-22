@@ -166,6 +166,7 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
+
     /**
      * Remove the specified resource from storage.
      *

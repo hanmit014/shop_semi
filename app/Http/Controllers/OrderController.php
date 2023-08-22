@@ -8,7 +8,7 @@ use App\Models\Order;
 use App\Models\Shipping;
 use App\User;
 use PDF;
-use Notification;
+use Illuminate\Support\Facades\Notification;
 use Helper;
 use Illuminate\Support\Str;
 use App\Notifications\StatusNotification;
@@ -16,6 +16,7 @@ use App\Notifications\StatusNotification;
 class OrderController extends Controller
 {
     /**
+     *
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -278,7 +279,7 @@ class OrderController extends Controller
         $pdf=PDF::loadview('backend.order.pdf',compact('order'));
         return $pdf->download($file_name);
     }
-    // Income chart
+    // Income charts
     public function incomeChart(Request $request){
         $year=\Carbon\Carbon::now()->year;
         // dd($year);
